@@ -56,7 +56,7 @@ class ResumenPantalla extends StatelessWidget {
                   children: [
                     const SizedBox(height: 16),
                     const _TarjetaCabecera(),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 56),
                     const _FilaEstadisticas(),
                     const SizedBox(height: 20),
                     const Padding(
@@ -125,10 +125,17 @@ class _BarraSuperior extends StatelessWidget {
               color: TaskFlowColors.textoOscuro,
             ),
           ),
-          const CircleAvatar(
+          CircleAvatar(
             radius: 18,
-            backgroundColor: TaskFlowColors.moradoOscuro,
-            child: Text('A', style: TextStyle(color: Colors.white)),
+            backgroundColor: Colors.grey.shade300,
+            child: Text(
+              'A',
+              style: TextStyle(
+                color: TaskFlowColors.moradoOscuro,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
           ),
         ],
       ),
@@ -179,7 +186,7 @@ class _TarjetaCabecera extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: 8,
+            right: 4,
             bottom: -38,
             child: const InsigniaProgreso(porcentaje: 0.6),
           ),
@@ -376,12 +383,25 @@ class TarjetaTarea extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 4),
-                Text(
-                  meta,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    color: TaskFlowColors.textoGris,
-                  ),
+                Row(
+                  children: [
+                    Icon(
+                      Icons.calendar_today_outlined,
+                      size: 12,
+                      color: TaskFlowColors.textoGris,
+                    ),
+                    const SizedBox(width: 4),
+                    Flexible(
+                      child: Text(
+                        meta,
+                        overflow: TextOverflow.ellipsis,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: TaskFlowColors.textoGris,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
@@ -468,25 +488,46 @@ class _TarjetaFrase extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: TaskFlowColors.lilaClaro,
+        color: TaskFlowColors.lilaClaro, // #EEEBF7
         borderRadius: BorderRadius.circular(16),
       ),
-      child: Column(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
           Text(
-            '"La disciplina es el puente entre las metas y los logros que '
-            'realmente importan."',
+            '\u201C',
             style: TextStyle(
-              fontStyle: FontStyle.italic,
-              fontSize: 13,
-              color: TaskFlowColors.textoOscuro,
+              fontSize: 45, // más pequeña
+              fontWeight: FontWeight.bold,
+              height: 0.8,
+              color: const Color.fromARGB(255, 190, 190, 191),
             ),
           ),
-          SizedBox(height: 6),
-          Text(
-            '— Jim Rohn',
-            style: TextStyle(fontSize: 12, color: TaskFlowColors.textoGris),
+          const SizedBox(width: 6), // sin separación extra
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'La disciplina es el puente entre las metas '
+                  'y los logros que realmente importan.',
+                  style: TextStyle(
+                    fontStyle: FontStyle.italic,
+                    fontSize: 13,
+                    color: TaskFlowColors.moradoOscuro, // más oscuro
+                  ),
+                ),
+                const SizedBox(height: 10), // más espacio antes del autor
+                Text(
+                  '— Jim Rohn',
+                  style: TextStyle(
+                    fontSize: 11, // más pequeño
+                    fontWeight: FontWeight.bold,
+                    color: TaskFlowColors.moradoOscuro,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -509,7 +550,7 @@ class _BarraInferior extends StatelessWidget {
         children: const [
           Expanded(
             child: _ItemBarraInferior(
-              icono: Icons.check_circle_outline,
+              icono: Icons.format_list_bulleted,
               etiqueta: 'Tareas',
               activo: true,
             ),
@@ -548,10 +589,20 @@ class _ItemBarraInferior extends StatelessWidget {
     final Color color = activo
         ? TaskFlowColors.moradoOscuro
         : TaskFlowColors.textoGris;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(icono, color: color),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 6),
+          decoration: activo
+              ? BoxDecoration(
+                  color: TaskFlowColors.moradoOscuro.withOpacity(0.12),
+                  borderRadius: BorderRadius.circular(20),
+                )
+              : null,
+          child: Icon(icono, color: color),
+        ),
         const SizedBox(height: 4),
         Text(etiqueta, style: TextStyle(fontSize: 11, color: color)),
       ],
