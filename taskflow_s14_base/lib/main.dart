@@ -3,6 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'pantallas/listado_tareas_screen.dart';
 
+import 'pantallas/login_screen.dart';
+
 /// TaskFlow - Semana 13: formularios y validacion.
 void main() {
   runApp(const ProviderScope(child: TaskFlowApp()));
@@ -27,7 +29,7 @@ class TaskFlowApp extends StatelessWidget {
           secondary: dorado,
         ),
       ),
-      home: const ListadoTareasScreen(),
+      home: const LoginScreen(),
     );
   }
 }
