@@ -100,5 +100,3 @@ Error sin conexión con el botón Reintentar.
 
 *Diseño de Stitch: pantalla de Listado (Publicaciones).*
 
-
-Diseño de Login generado con Google Stitch.
