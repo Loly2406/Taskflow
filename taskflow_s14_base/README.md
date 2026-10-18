@@ -88,5 +88,17 @@ Error sin conexión con el botón Reintentar.
 
 ![Diseño del Login en Stitch](capturas/Screenshot_20261017_071538_Chrome.jpg)
 
+![Diseño de Stitch: Crear cuenta](capturas/Screenshot_20261017_202343_Chrome.jpg)
+
+
+*Diseño de Stitch: pantalla de Registro (Crear cuenta).*
+
+
+
+![Diseño de Stitch: Publicaciones](capturas/Screenshot_20261017_204052_Chrome.jpg)
+
+
+*Diseño de Stitch: pantalla de Listado (Publicaciones).*
+
 
 Diseño de Login generado con Google Stitch.
