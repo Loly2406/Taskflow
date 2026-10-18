@@ -24,7 +24,69 @@ Se pidieron también el Registro ("Crear cuenta") y el Listado ("Publicaciones")
 
 ## Declaración de uso de IA
 - Los diseños de las 3 pantallas se generaron con Google Stitch (IA).
-- Gran parte del código de la app (login, registro, campo reutilizable, servicio HTTP, provider y listado) se generó con ayuda de Claude (IA).
+- Parte del código de la app (login, registro, campo reutilizable, servicio HTTP, provider y listado) se generó con ayuda de Claude (IA).
 - Acepté la paleta de colores propuesta.
 - Modifiqué partes del diseño y la forma del código.
 - Probé la app funcionando: validación del Login y del Registro, scroll infinito, error sin conexión con "Reintentar" y navegación sin volver al Login.
+
+## Capturas de la app
+
+### Login
+
+
+![Login con errores de validación](capturas/Screenshot_20261016_214521_Chrome.jpg)
+
+
+Validación del Login: correo inválido y contraseña de menos de 8 caracteres.
+
+
+
+![Login con credenciales incorrectas](capturas/Screenshot_20261016_214611_Chrome.jpg)
+
+
+Mensaje «Correo o contraseña incorrectos».
+
+### Registro
+
+
+![Registro vacío](capturas/Screenshot_20261016_215906_Chrome.jpg)
+
+
+Pantalla de Registro.
+
+
+
+![Registro con validación cruzada](capturas/Screenshot_20261016_220021_Chrome.jpg)
+
+
+Validación cruzada: «Las contraseñas no coinciden».
+
+### Listado
+
+
+![Listado de publicaciones](capturas/Screenshot_20261016_215821_Chrome.jpg)
+
+
+Primera carga: publicaciones 1 a 13.
+
+
+
+![Fin del listado](capturas/Screenshot_20261016_214802_Chrome.jpg)
+
+
+Fin del scroll infinito: «No hay más publicaciones.»
+
+
+
+![Error sin conexión](capturas/Screenshot_20261016_215648_Chrome.jpg)
+
+
+Error sin conexión con el botón Reintentar.
+
+### Diseño en Stitch
+
+
+![Diseño del Login en Stitch](capturas/Screenshot_20261017_071538_Chrome.jpg)
+
+
+Diseño de Login generado con Google Stitch.
