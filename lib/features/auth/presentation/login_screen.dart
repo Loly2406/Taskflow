@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/campo_texto.dart';
-import 'publicaciones_screen.dart';
+import 'package:taskflow/core/widgets/campo_texto.dart';
+import 'package:taskflow/features/tareas/presentation/listado_tareas_screen.dart';
 import 'registro_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
       // Reemplaza todo el historial: "atrás" ya no regresa al Login
       Navigator.pushAndRemoveUntil(
         context,
-        MaterialPageRoute(builder: (_) => const PublicacionesScreen()),
+        MaterialPageRoute(builder: (_) => const ListadoTareasScreen()),
         (ruta) => false,
       );
       return;

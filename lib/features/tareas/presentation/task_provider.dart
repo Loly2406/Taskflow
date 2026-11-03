@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../modelos/tarea.dart';
-import '../validacion/validadores_tarea.dart';
+import 'package:taskflow/features/tareas/domain/tarea.dart';
+import 'package:taskflow/features/tareas/domain/validadores_tarea.dart';
 
 /// Estado de la APP (Semana 10): la lista de tareas confirmadas.
 /// Aqui solo entran tareas terminadas y validas; los borradores del

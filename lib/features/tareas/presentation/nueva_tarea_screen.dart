@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../modelos/tarea.dart';
-import '../utils/formato.dart';
-import '../validacion/validadores_tarea.dart';
+import 'package:taskflow/features/tareas/domain/tarea.dart';
+import 'package:taskflow/core/utils/formato.dart';
+import 'package:taskflow/features/tareas/domain/validadores_tarea.dart';
 
 /// SEMANA 13 - SESION 2: pantalla "Nueva tarea".
 ///

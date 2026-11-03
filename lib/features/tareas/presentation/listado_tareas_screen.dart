@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../practica/experimento_isolate_screen.dart';
-import '../estado/task_provider.dart';
-import '../modelos/tarea.dart';
-import '../utils/formato.dart';
+import 'package:taskflow/features/tareas/presentation/task_provider.dart';
+import 'package:taskflow/features/tareas/domain/tarea.dart';
+import 'package:taskflow/core/utils/formato.dart';
 import 'nueva_tarea_screen.dart';
-import 'tareas_remotas_screen.dart'; 
 
 /// Listado de tareas (Semana 10 + Semana 13).
 /// Es quien ABRE el formulario y RECIBE la tarea creada.
@@ -41,25 +39,6 @@ class ListadoTareasScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('TaskFlow'),
-        actions: [
-          // Práctica de la Sesión 1 (sección 1.8): experimento de isolates.
-          IconButton(
-            tooltip: 'Experimento: isolates',
-            icon: const Icon(Icons.science_outlined),
-            onPressed: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => const ExperimentoIsolateScreen()),
-            ),
-          ),
-IconButton(
-              tooltip: 'Tareas en la nube',
-                          icon: const Icon(Icons.cloud),
-                                      onPressed: () => Navigator.push(
-                                                    context,
-                                                                  MaterialPageRoute(builder: (_) => const TareasRemotasScreen()),
-                                                                              ),
-                                                                                        ),
-        ],
       ),
       body: tareas.isEmpty
           ? const Center(child: Text('No hay tareas. Crea la primera con +'))

@@ -18,6 +18,7 @@ analyzer:
     - windows/**
     - macos/**
     - linux/**
+    - taskflow_s14_base/**
 
 linter:
   # The lint rules applied to this project can be customized in the
@@ -36,3 +37,4 @@ linter:
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
+

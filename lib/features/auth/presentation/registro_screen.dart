@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../widgets/campo_texto.dart';
+import 'package:taskflow/core/widgets/campo_texto.dart';
 
 class RegistroScreen extends StatefulWidget {
   const RegistroScreen({super.key});
