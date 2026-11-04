@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'package:taskflow/core/widgets/campo_texto.dart';
+import 'package:taskflow/features/auth/domain/auth_repository.dart';
+import 'package:taskflow/features/auth/presentation/auth_providers.dart';
 import 'package:taskflow/features/tareas/presentation/listado_tareas_screen.dart';
 import 'registro_screen.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _correoController = TextEditingController();
   final _claveController = TextEditingController();
@@ -55,22 +59,25 @@ class _LoginScreenState extends State<LoginScreen> {
       _cargando = true;
       _mensajeError = null;
     });
-    await Future.delayed(const Duration(seconds: 2));
-    if (!mounted) return;
-    final correcta = _claveController.text == '12345678';
-    if (correcta) {
-      // Reemplaza todo el historial: "atrás" ya no regresa al Login
+    try {
+      await ref.read(authRepositoryProvider).iniciarSesion(
+            _correoController.text,
+            _claveController.text,
+          );
+      if (!mounted) return;
+      // PROVISIONAL: con go_router esto se borra y el redirect decide.
       Navigator.pushAndRemoveUntil(
         context,
         MaterialPageRoute(builder: (_) => const ListadoTareasScreen()),
         (ruta) => false,
       );
-      return;
+    } on AuthException catch (e) {
+      if (!mounted) return;
+      setState(() {
+        _cargando = false;
+        _mensajeError = e.mensaje;
+      });
     }
-    setState(() {
-      _cargando = false;
-      _mensajeError = 'Correo o contraseña incorrectos';
-    });
   }
 
   @override
