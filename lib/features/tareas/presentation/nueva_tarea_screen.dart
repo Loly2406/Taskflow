@@ -65,7 +65,7 @@ class _NuevaTareaScreenState extends State<NuevaTareaScreen> {
   void _guardar() {
     if (!_formKey.currentState!.validate()) return;
 
-    final tarea = Tarea(
+    final tarea = Tarea(id: '', 
       titulo: _tituloCtrl.text.trim(),
       descripcion: _descripcionCtrl.text.trim(),
       fechaLimite: _fechaLimite!, // seguro: el validador ya lo exigio
